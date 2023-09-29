@@ -1,13 +1,6 @@
 <?php
 	session_start();
 	$rfm_version = "3.0 Beta";
-/*
-Plugin Name: Responsive File Manager for GetSimple
-Description: Responsive File Manager plugin Integrated for Getsimple
-Version: 2.8
-Author: Andrejus Semionovas
-Author URI: http://pigios-svetaines.eu/
-*/
 
 /* 
  This version uses a slightly modified Layer Slider core to function correctly in GetSimple.
@@ -25,17 +18,17 @@ $rfm_plugin_path = GSPLUGINPATH."responsivefilemanager/";
 # register plugin
 register_plugin(
 	$thisfile, 										# ID of plugin, should be filename minus php
-	'Responsive FileManager CE', 					# Title of plugin
+	i18n_r($thisfile.'/FM_Main_Title'), 			# Title of plugin
 	$rfm_version, 									# Version of plugin
 	'A. Semionovas, islander',						# Author of plugin
-	'', 					# Author URL
+	'https://github.com/GetSimpleCMS-CE-plugins/plugin-Responsive_FileManager_CE', # Author URL
 	i18n_r($thisfile.'/FM_PLUGIN_DESC'), 	    	# Plugin Description
 	'files', 										# Page type of plugin
 	'responsivefilemanager_get'  					# Function that displays content
 );
 
 # activate hooks
-add_action('files-sidebar','createSideMenu',array($thisfile,'Responsive FileManager')); 	// Add the sidebar 
+add_action('files-sidebar','createSideMenu', [$thisfile, i18n_r($thisfile.'/FM_Menu_Title').' 🖼️']); 	// Add the sidebar 
 add_action('edit-extras', 'editorChangeParams', array());
 add_action('theme-footer','rfm_scriptstoFooter');
 add_action('footer','rfm_scriptstoFooterBack');
@@ -366,7 +359,7 @@ function responsivefilemanager_get() {
 		$rfm_hidden = $rfm_xml->rfm_hidden;
 	}
 ?>
-	<h3 class="floated" style="float:left">Responsive FileManager</h3>
+	<h3 class="floated" style="float:left"><?php echo i18n_r($thisfile.'/FM_Main_Title'); ?></h3>
 	<div class="edit-nav">
         <p>
 		 <a href="../plugins/responsivefilemanager/dialog.php?type=0&lang=<?php echo $lang_curr; ?>&akey=<?php echo $access_key; ?>" class="btn iframe-btn" type="button"><?php i18n('responsivefilemanager/OPEN_FM'); ?></a>
