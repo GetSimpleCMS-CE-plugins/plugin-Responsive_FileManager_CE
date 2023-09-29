@@ -3,7 +3,6 @@
 return [
 
     'de_DE' => 'Deutsch',
-    'el_GR' => 'ελληνικά',
     'en_US' => 'English',
     'es_ES' => 'Español',
     'fr_FR' => 'Français',
