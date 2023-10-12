@@ -512,12 +512,12 @@ $config = [
     // path_from_filemanager/test/test1/
     // PS if there isn't write permission in your destination folder you must set it
     //
-    'fixed_image_creation'                    => false, //activate or not the creation of one or more image resized with fixed path from filemanager folder
-    'fixed_path_from_filemanager'             => ['../../data/thumbs/', '../../data/thumbs/'], //fixed path of the image folder from the current position on upload folder
-    'fixed_image_creation_name_to_prepend'    => ['', ''], //name to prepend on filename
-    'fixed_image_creation_to_append'          => ['_thumb', '.thumbnail'], //name to appendon filename
-    'fixed_image_creation_width'              => [300, 400], //width of image
-    'fixed_image_creation_height'             => [200, 300], //height of image
+	'fixed_image_creation' => true,
+	'fixed_path_from_filemanager' => array( '../../data/thumbs/', '../../data/thumbs/' ),
+	'fixed_image_creation_name_to_prepend' => array( '' ),
+	'fixed_image_creation_to_append' => array( '_thumb', '.thumbnail' ),
+	'fixed_image_creation_width' => array( 250, '' ),
+	'fixed_image_creation_height' => array( 200, 300 ),
     /*
     #             $option:     0 / exact = defined size;
     #                          1 / portrait = keep aspect set height;
@@ -525,7 +525,7 @@ $config = [
     #                          3 / auto = auto;
     #                          4 / crop= resize and crop;
     */
-    'fixed_image_creation_option'             => ['crop', 'auto'], //set the type of the crop
+	'fixed_image_creation_option' => array( 'crop', 'auto' ),
 
 
     // New image resized creation with relative path inside to upload folder after uploading (thumbnails in relative mode)
